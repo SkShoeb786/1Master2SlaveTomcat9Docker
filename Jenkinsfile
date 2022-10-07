@@ -11,6 +11,26 @@ pipeline{
 				sh 'mvn clean install -DskipTests'
 			}
 		}
+		stage('slave1 permission'){
+			agent{
+				label{
+					label'slave1'
+				}
+			}
+			steps{
+				sh 'sudo chmod -R 777 /home/ec2-user/docker-compose1.yaml'
+			}
+		}
+		stage('slave2 permission'){
+			agent{
+				label{
+					label'slave1'
+				}
+			}
+			steps{
+				sh 'sudo chmod -R 777 /home/ec2-user/docker-compose2.yaml'
+			}
+		}
 		stage('deploy on slave1 and slave2 from master'){
 			steps{
 			sh 'scp -i /root/Common.pem /mnt/project/gameoflife-web/target/gameoflife.war ec2-user@13.232.95.184:/home/ec2-user/volume'
