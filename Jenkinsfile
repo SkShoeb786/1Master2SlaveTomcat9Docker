@@ -25,7 +25,7 @@ pipeline{
 				}
 			}
 			steps{
-				sh 'sudo docker-compose up -d --scale container_1=2'
+				sh 'sudo docker-compose up -d --scale service_1=2'
 			}
 		}
 	}
