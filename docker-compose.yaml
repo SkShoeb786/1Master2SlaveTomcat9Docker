@@ -8,3 +8,11 @@ services:
     - '80-81:8080'
     volumes:
     - '/home/ec2-user/volume:/usr/local/tomcat/webapps'
+    service_2:
+    build:
+      context: ./slave2
+    image: container2
+    ports:
+    - '8080-8081:8080'
+    volumes:
+    - '/home/ec2-user/volume:/usr/local/tomcat/webapps'
