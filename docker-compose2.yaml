@@ -1,6 +1,6 @@
 version: '3'
 services:
-    service_2:
+  service_2:
     build:
       context: ./slave2
     image: container2
