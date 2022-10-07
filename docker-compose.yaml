@@ -1,0 +1,9 @@
+version: '3'
+services:
+  container_1:
+    build:
+      context: ./slave1
+    image: container1
+    ports:
+    - '80:8080'
+    - '90:8080'
