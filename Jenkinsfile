@@ -28,7 +28,7 @@ pipeline{
 				}
 			}
 			steps{
-				sh 'sudo docker-compose down'
+				sh 'sudo docker-compose -f docker-compose1.yaml down'
 				sh 'sudo docker-compose -f docker-compose1.yaml up -d --scale service_1=2'
 			}
 		}
@@ -39,7 +39,7 @@ pipeline{
 				}
 			}
 			steps{
-				sh 'sudo docker-compose down'
+				sh 'sudo docker-compose -f docker-compose2.yaml down'
 				sh 'sudo docker-compose -f docker-compose2.yaml up -d --scale service_2=2'
 			}
 		}
